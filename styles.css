@@ -8,6 +8,16 @@ Styles based on normalize.css v7.0.0
 
 --*/
 
+/* Fonts
+   ========================================================================== */
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
 /* Document
    ========================================================================== */
 html {
@@ -47,7 +57,7 @@ section {
 
 .container {
   padding: 0 auto;
-  width: 95%;
+  width: 98%;
 }
 
 /**
@@ -467,4 +477,15 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/* Mobile
+   ========================================================================== */
+
+header.container {
+  letter-spacing: auto;
+}
+
+div.main {
+  text-overflow: ellipsis;
 }

@@ -8,114 +8,128 @@ Theme written by @schwillium
 -->
 
 <html lang="en">
-    <head>
-        <!-- Title -->
-        <title>{Title}</title>
+  <head>
+    <!-- Title -->
+    <title>{Title}</title>
 
-        <!-- Description -->
-        {block:Description}
-            <meta name="description" content="{MetaDescription}" />
-        {/block:Description}
+    <!-- Description -->
+    {block:Description}
+      <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
 
-        <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-        <link href="https://w-lindvall.github.io/lagom-theme/styles.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700i" rel="stylesheet">
+    <link href="https://w-lindvall.github.io/lagom-theme/styles.css" rel="stylesheet" type="text/css" media="screen" charset="utf-8"/>
 
-        <meta name="viewport" content="width=device-width">
-        <link rel="shortcut icon" href="{Favicon}">
-        <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    </head>
-    <body>
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="container">
         <h1>{Title}</h1>
+      </header>
 
-        {block:Description}
-            <p id="description">{Description}</p>
-        {/block:Description}
-
+      <div class="container main"
         <ol id="posts">
-            {block:Posts}{block:Text}
-                    <li class="post text">
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}{Body}
-                    </li>
-                {/block:Text}{block:Photo}
-                    <li class="post photo">
-                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+          {block:Posts}
 
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </li>
-                {/block:Photo}{block:Panorama}
-                    <li class="post panorama">
-                        {LinkOpenTag}
-                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                        {LinkCloseTag}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </li>
-                {/block:Panorama}{block:Photoset}
-                    <li class="post photoset">
-                        {Photoset-500}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </li>
-                {/block:Photoset}{block:Quote}
-                    <li class="post quote">
-                        "{Quote}"
+          <!-- Text -->
+          {block:Text}
+              <li class="post text">
+                {block:Title}
+                  <h2><a href="{Permalink}">{Title}</a></h2>
+                {/block:Title}
+              </li>
+          {/block:Text}
 
-                        {block:Source}
-                            <div class="source">{Source}</div>
-                        {/block:Source}
-                    </li>
-                {/block:Quote}{block:Link}
-                    <li class="post link">
-                        <a href="{URL}" class="link" {Target}>{Name}</a>
+          <!-- Photo -->
+          {block:Photo}
+            <li class="post photo">
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            </li>
+          {/block:Photo}
 
-                        {block:Description}
-                            <div class="description">{Description}</div>
-                        {/block:Description}
-                    </li>
-                {/block:Link}{block:Chat}
-                    <li class="post chat">
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
+          <!-- Panorama -->
+          {block:Panorama}
+            <li class="post panorama">
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            </li>
+          {/block:Panorama}
 
-                        <ul class="chat">
-                            {block:Lines}
-                                <li class="{Alt} user_{UserNumber}">
-                                    {block:Label}
-                                        <span class="label">{Label}</span>
-                                    {/block:Label}{Line}
-                                </li>
-                            {/block:Lines}
-                        </ul>
-                    </li>
-                {/block:Chat}{block:Video}
-                    <li class="post video">
-                        {Video-500}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </li>
-                {/block:Video}{block:Audio}
-                    <li class="post audio">
-                        {AudioEmbed}{block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                    </li>
-                {/block:Audio}{/block:Posts}
+          <!-- Photoset -->
+          {block:Photoset}
+            <li class="post photoset">
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            </li>
+          {/block:Photoset}
+
+          <!-- Quote -->
+          {block:Quote}
+            <li class="post quote">
+              "{Quote}"
+
+              {block:Source}
+                  <div class="source">{Source}</div>
+              {/block:Source}
+            </li>
+          {/block:Quote}
+
+          <!-- Link -->
+          {block:Link}
+            <li class="post link">
+              <a href="{URL}" class="link" {Target}>{Name}</a>
+            </li>
+          {/block:Link}
+
+          <!-- Chat -->
+          {block:Chat}
+            <li class="post chat">
+              {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+              {/block:Title}
+            </li>
+          {/block:Chat}
+
+          <!-- Video -->
+          {block:Video}
+            <li class="post video">
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            </li>
+          {/block:Video}
+
+          <!-- Audio -->
+          {block:Audio}
+            <li class="post audio">
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            </li>
+          {/block:Audio}
+          {/block:Posts}
         </ol>
 
-        <p id="footer">
+        <!-- Footer -->
+        <footer class="container">
+          <p id="footer">
             {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
+              <a href="{PreviousPage}">&#171; Previous</a>
             {/block:PreviousPage}{block:NextPage}
-                <a href="{NextPage}">Next &#187;</a>
+              <a href="{NextPage}">Next &#187;</a>
             {/block:NextPage}
 
             <a href="/archive">Archive</a>
-        </p>
+          </p>
+        </footer>
+      </div>
     </body>
 </html>
