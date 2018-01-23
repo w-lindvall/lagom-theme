@@ -492,13 +492,19 @@ div.main {
   display: none;
 }
 
+.post a,
+.post p {
+  display: inline-block;
+  float: left;
+}
+
 h1 {
-  font-size: 2.2em;
+  font-size: 4em;
   font-weight: normal;
 }
 
 h2 {
-  font-size: 2em
+  font-size: 3.8em
   font-weight: bold;
   font-style: italic;
 }
