@@ -32,23 +32,30 @@ Theme written by @schwillium
       </header>
 
       <div class="container main"
-        <ol id="posts">
+        <ul class="list">
           {block:Posts}
 
           <!-- Text -->
           {block:Text}
               <li class="post text">
                 {block:Title}
-                  <h2><a href="{Permalink}">{Title}</a></h2>
+                  <h2><a href="{Permalink}">{Title}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
                 {/block:Title}
+                <div class="content">
+                  {Body}
+                </div>
               </li>
           {/block:Text}
 
           <!-- Photo -->
           {block:Photo}
             <li class="post photo">
+              <div class="content">
+                <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+              </div>
+
               {block:Caption}
-                <div class="caption">{Caption}</div>
+                <h2><a href="{Permalink}">{Caption}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
               {/block:Caption}
             </li>
           {/block:Photo}
@@ -56,8 +63,11 @@ Theme written by @schwillium
           <!-- Panorama -->
           {block:Panorama}
             <li class="post panorama">
+              {LinkOpenTag}
+                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+              {LinkCloseTag}
               {block:Caption}
-                <div class="caption">{Caption}</div>
+                <h2><a href="{Permalink}">{Caption}</a>,{block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
               {/block:Caption}
             </li>
           {/block:Panorama}
@@ -65,8 +75,11 @@ Theme written by @schwillium
           <!-- Photoset -->
           {block:Photoset}
             <li class="post photoset">
+              <div class="content">
+                {Photoset-500}
+              </div>
               {block:Caption}
-                <div class="caption">{Caption}</div>
+                <h2><a href="{Permalink}">{Caption}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
               {/block:Caption}
             </li>
           {/block:Photoset}
@@ -74,35 +87,57 @@ Theme written by @schwillium
           <!-- Quote -->
           {block:Quote}
             <li class="post quote">
-              "{Quote}"
+              <h2><a href="{Permalink}">"{Quote}"</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
 
-              {block:Source}
+              <div class="content">
+                {block:Source}
                   <div class="source">{Source}</div>
-              {/block:Source}
+                {/block:Source}
+              </div>
             </li>
           {/block:Quote}
 
           <!-- Link -->
           {block:Link}
             <li class="post link">
-              <a href="{URL}" class="link" {Target}>{Name}</a>
+              <h2><a href="{URL}" class="link" {Target}>{Name}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
+
+              {block:Description}
+                <div class="description">{Description}</div>
+              {/block:Description}
             </li>
           {/block:Link}
 
           <!-- Chat -->
           {block:Chat}
             <li class="post chat">
-              {block:Title}
-                <h3><a href="{Permalink}">{Title}</a></h3>
-              {/block:Title}
-            </li>
+             {block:Title}
+                <h2><a href="{Permalink}">{Title}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
+             {/block:Title}
+
+             <div class="content">
+               <ul class="chat">
+                {block:Lines}
+                  <li class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                      <span class="label">{Label}</span>
+                    {/block:Label}
+                    {Line}
+                  </li>
+                {/block:Lines}
+               </ul>
+             </div>
+           </li>
           {/block:Chat}
 
           <!-- Video -->
           {block:Video}
             <li class="post video">
+              <div class="content">
+                {Video-500}
+              </div>
               {block:Caption}
-                <div class="caption">{Caption}</div>
+                <h2><a href="{Permalink}">{Caption}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
               {/block:Caption}
             </li>
           {/block:Video}
@@ -110,8 +145,11 @@ Theme written by @schwillium
           <!-- Audio -->
           {block:Audio}
             <li class="post audio">
+              <div class="content">
+                {AudioEmbed}
+              </div>
               {block:Caption}
-                <div class="caption">{Caption}</div>
+                <h2><a href="{Permalink}">{Caption}</a>, {block:Date}{DayOfMonthWithZero}/{MonthNumberWithZero}/{Year}{/block:Date}</h2>
               {/block:Caption}
             </li>
           {/block:Audio}
@@ -120,15 +158,14 @@ Theme written by @schwillium
 
         <!-- Footer -->
         <footer class="container">
-          <p id="footer">
-            {block:PreviousPage}
-              <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}{block:NextPage}
-              <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
+          <!-- {block:PreviousPage}
+            <a href="{PreviousPage}">&#171; Previous</a>
+          {/block:PreviousPage}
+          {block:NextPage}
+            <a href="{NextPage}">Next &#187;</a>
+          {/block:NextPage} -->
 
-            <a href="/archive">Archive</a>
-          </p>
+          <a href="/archive">Archive</a>
         </footer>
       </div>
     </body>

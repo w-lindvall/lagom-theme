@@ -8,26 +8,12 @@ Styles based on normalize.css v7.0.0
 
 --*/
 
-/* Fonts
-   ========================================================================== */
-body {
-  font-family: 'Playfair Display', serif;
-}
-
-h1 {
-  font-size: 3em;
-}
-
 /* Document
    ========================================================================== */
 html {
   line-height: 1.15; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-* {
-  box-sizing: border-box;
 }
 
 /* Sections
@@ -51,22 +37,12 @@ section {
   display: block;
 }
 
-.wrapper {
-  width: 100%;
-}
-
-.container {
-  padding: 0 auto;
-  width: 98%;
-}
-
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
 h1 {
-  font-size: 2em;
   margin: 0.67em 0;
 }
 
@@ -479,8 +455,30 @@ template {
   display: none;
 }
 
+/* Fonts
+   ========================================================================== */
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
 /* Mobile
    ========================================================================== */
+* {
+ box-sizing: border-box;
+}
+
+.wrapper {
+ width: 100%;
+}
+
+.container {
+ padding: 0 auto;
+ width: 98%;
+}
 
 header.container {
   letter-spacing: auto;
@@ -488,4 +486,19 @@ header.container {
 
 div.main {
   text-overflow: ellipsis;
+}
+
+.content {
+  display: none;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 2em
+  font-weight: bold;
+  font-style: italic;
 }
